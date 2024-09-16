@@ -10,7 +10,7 @@
 
 (завдання на методи масивів): */
 
-// let arr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+let arr2 = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97];
 // function findSimple(num) {
 //     if (num === 1) {
 //         return false
@@ -23,10 +23,27 @@
 //     } else if (num % 7 === 0 && num !== 7) {
 //       return false;
 //     } else return true;
-
+// }
 // }
 // let simples = arr2.filter(findSimple)
 // console.log(simples);
+function isPrime(num) {
+  if (num <= 1) return false; // числа менше або дорівнюють 1 не є простими
+  if (num <= 3) return true; // 2 і 3 - прості числа
+  if (num % 2 === 0 || num % 3 === 0) return false; // виключаємо кратні 2 та 3
+  for (let i = 5; i * i <= num; i += 6) {
+    // перевірка лише до квадратного кореня
+    if (num % i === 0 || num % (i + 2) === 0) return false;
+  }
+  return true;
+}
+
+for (let i = 0; i < arr2.length; i++) {
+    if (isPrime(arr2[i])) {
+        console.log(arr2[i]);
+    }
+}
+
 
 
 /*3.  Дано два масива: [1, 2, 3] і [4, 5, 6]. Об'єднати їх разом */
@@ -39,7 +56,7 @@
 
 /* 4. Даний масив [6, 5, 4]. Зробити з нього масив [4, 5,6] */
 
-// let arr4 = [6, 5, 4].sort();
+// let arr4 = [6, 5, 4].reverse();
 // console.log(arr4);
 
 /* 5. Даний масив [1, 2, 3]. Додати йому в кінець елементи 4, 5, 6 */
@@ -103,18 +120,19 @@ vovelsArray = [a, e, i, o, u, y]
 'lorem ipsum dolor sit amet' // 9
  */
 
-const vovelsArray = ['a', 'e', 'i', 'o', 'u', 'y']
+// const vovelsArray = ['a', 'e', 'i', 'o', 'u', 'y']
 
-function countVovels(str, vovelsArray) {
-    let count = 0;
-    str = str.toLowerCase()
-    for (let char of str) {
-        if (vovelsArray.includes(char)) {
-            count++;
-        }
-    }
-    return count
-}
+// function countVovels(str, vovelsArray) {
+//     let count = 0;
+//     str = str.toLowerCase()
+//     for (let char of str) {
+//         if (vovelsArray.includes(char)) {
+//             count++;
+//         }
+//     }
+//     return count
+// }
 
-console.log(countVovels('hello to you', vovelsArray));
-console.log(countVovels("lorem ipsum dolor sit amet", vovelsArray));
+// console.log(countVovels('hello to you', vovelsArray));
+// console.log(countVovels("lorem ipsum dolor sit amet", vovelsArray));
+
